@@ -2,14 +2,23 @@ var express= require('express');
 
 // Create the app
 var app=express();
-app.use( express.static('public'))
+const PORT= process.env.PORT || 3000;
 app.use(function (req, res, next) {
 
+      if(req.header['x-forwarded-proto']==='http'){
+
+          next();
+
+      }else{
+          res.redirect('http://'+req.hostname+req.url);
+      }
+}
+
         // Website you wish to allow to connect
-        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8888');
+       // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8888');
 
         // Request methods you wish to allow
-        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+       /* res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
         // Request headers you wish to allow
         res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
@@ -19,11 +28,13 @@ app.use(function (req, res, next) {
         res.setHeader('Access-Control-Allow-Credentials', true);
 
         // Pass to next layer of middleware
-        next();
+        next();*?
     }
-    );
+);
+app.use( express.static('public'))
 
-app.listen(3000,function(){
+
+app.listen(PORT,function(){
     
-    console.log('Express server is up on port 300');
+    console.log('Express server is up on port'+PORT);
 });
