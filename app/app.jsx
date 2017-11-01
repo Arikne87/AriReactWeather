@@ -5,7 +5,8 @@
  var Weather=require('Weather');
  var About=require('About');
  var Examples=require('Examples');
-
+require('style!css!foundation-sites/dist/css/foundation.min.css');
+ $(document).foundation();
 
 
 
