@@ -12,7 +12,7 @@ app.use(function (req, res, next) {
       }else{
           res.redirect('http://'+req.hostname+req.url);
       }
-}
+
 
         // Website you wish to allow to connect
        // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8888');
@@ -28,10 +28,10 @@ app.use(function (req, res, next) {
         res.setHeader('Access-Control-Allow-Credentials', true);
 
         // Pass to next layer of middleware
-        next();*?
+        next();*/
     }
 );
-app.use( express.static('public'))
+app.use( express.static('public'));s
 
 
 app.listen(PORT,function(){
