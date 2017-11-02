@@ -6,20 +6,17 @@ var Nav=React.createClass({
       e.preventDefault();
   },
     render:function(){
-        const divStyle = {
-            color: 'white',
-            backgroundColor: 'lightgreen',
-        };
+
         return(
 
           <div className="top-bar">
 
               <div className="top-bar-left">
                   <ul className="menu simple">
-                      <li className="menu-text">Raect Weather</li>
-                      <li> <IndexLink  activeStyle={{fontWeight:'bold'}} activeClassName="active" to="/">Weather</IndexLink></li>
-                      <li><Link   activeStyle={{fontWeight:'bold'}} activeClassName="active" to="about">About</Link></li>
-                      <li><Link   activeStyle={{fontWeight:'bold'}} activeClassName="active" to="examples">Examples</Link></li>
+                      <li className="menu-text">React Weather</li>
+                      <li> <IndexLink   to="/">Weather</IndexLink></li>
+                      <li><Link    to="about">About</Link></li>
+                      <li><Link    to="examples">Examples</Link></li>
                   </ul>
 
               </div>

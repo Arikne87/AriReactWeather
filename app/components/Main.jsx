@@ -6,10 +6,16 @@ var Main=React.createClass({
 
     render: function () {
      return(
-         <div className="container-fluid">
+         <div>
             <Nav/>
-            <h2>Main</h2>
-             {this.props.children}
+            <div className="row">
+
+                 <div className= "column medium-8 large-6 medium-centered">
+                     {this.props.children}
+                 </div>
+
+            </div>
+
        </div>
 
      );
